@@ -1,6 +1,9 @@
 class User < ApplicationRecord
   has_secure_password validations: true
 
+  validates :email, presence: true, uniqueness: true
+  validates :name, presence: true
+
   def sign_in
     remember_token = User.new_remember_token
     update(remember_token: User.encrypt(remember_token))
