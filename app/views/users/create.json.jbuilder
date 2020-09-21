@@ -1,5 +1,7 @@
 if @result
-  json.user @user
+  json.name @user.name
+  json.email @user.email
+  json.remember_token @user.remember_token
 else
   json.errors do
     json.array! @user.errors.full_messages do |message|
