@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  skip_before_action :user_authentication, only: :create
+
   def create
     @user = User.new(user_params)
     @result = @user.save
