@@ -1,6 +1,8 @@
 class SessionsController < ApplicationController
   skip_before_action :user_authentication, only: :create
 
+  def index; end
+
   def create
     @user = User.find_by(email: params[:email])
     @result = @user&.authenticate(params[:password])
