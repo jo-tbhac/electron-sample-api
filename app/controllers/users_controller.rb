@@ -1,6 +1,10 @@
 class UsersController < ApplicationController
   skip_before_action :user_authentication, only: :create
 
+  def index
+    @users = User.search(params[:keyword])
+  end
+
   def create
     @user = User.new(user_params)
     @result = @user.save

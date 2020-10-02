@@ -12,6 +12,10 @@ class User < ApplicationRecord
     update(remember_token: User.encrypt(remember_token))
   end
 
+  def self.search(keyword)
+    User.where('name LIKE ?', "%#{keyword}%")
+  end
+
   def self.new_remember_token
     SecureRandom.urlsafe_base64
   end
