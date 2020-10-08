@@ -3,7 +3,7 @@ Rails.application.routes.draw do
     resources :sessions, only: [:create, :index]
     resources :users, only: [:create, :index]
     resources :groups, only: [:create, :index] do
-      resources :messages, only: [:create]
+      resources :messages, only: [:create, :index]
     end
   end
 end
