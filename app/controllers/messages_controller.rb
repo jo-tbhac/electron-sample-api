@@ -1,6 +1,6 @@
 class MessagesController < ApplicationController
   def index
-    @messages = Message.where(group_id: params[:group_id])
+    @messages = Message.includes(:user).where(group_id: params[:group_id])
   end
 
   def create
